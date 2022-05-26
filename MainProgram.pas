@@ -123,8 +123,9 @@ Begin
     gotoxy(35,11);writeln('=                       =');   
     gotoxy(35,12);writeln('=    1. MAIN SUSAH      =');    
     gotoxy(35,13);writeln('=    2. MAIN MUDAH      =');
-    gotoxy(35,14);writeln('= = = = = = = = = = = = =');
-    gotoxy(40,16);write  ('LEVEL ANDA : '); readln(pilihan);
+    gotoxy(35,14);writeln('=    3. KELUAR          =');
+    gotoxy(35,15);writeln('= = = = = = = = = = = = =');
+    gotoxy(40,17);write  ('LEVEL ANDA : '); readln(pilihan);
     
     case pilihan of
         1:  Begin
