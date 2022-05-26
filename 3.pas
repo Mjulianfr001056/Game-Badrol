@@ -1,7 +1,7 @@
 uses crt;
 
 var 
-    a, b, c : array[1..1, 1..3] of string [1] = ('O');
+    a, b, c : array[1..3, 1..1] of char;
     i,j : integer;
     
 procedure TampilData;
@@ -18,6 +18,7 @@ begin
     end;
     writeln;
     Writeln ('A');
+    writeln;
 
     b [1,1] := 'O';
     b [2,1] := 'O';
@@ -26,11 +27,12 @@ begin
     for i:=1 to 3 do
     begin   
         for j:=1 to 1 do 
-            gotoxy(5,5); write (b[i,j]);
+            gotoxy(5,15); write (b[i,j]);
             writeln;
     end;
     writeln;
     Writeln ('B');
+    writeln;
 
     c [1,1] := 'O';
     c [2,1] := 'O';
@@ -39,11 +41,12 @@ begin
     for i:=1 to 3 do
     begin   
         for j:=1 to 1 do 
-             gotoxy(10,5); write (c[i,j]);
+             gotoxy(5,20); write (c[i,j]);
             writeln;
     end;
     writeln;
-    Writeln ('A');
+    Writeln ('C');
+    writeln;
 end;
 
 begin
