@@ -48,5 +48,5 @@ end;
 
 begin
 clrscr;
-TampilData;
+tampildata;
 end.
