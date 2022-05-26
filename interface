@@ -1,0 +1,36 @@
+Program Tebang_Pohon;
+Uses crt;
+Var
+    pilihan:integer;
+
+Procedure mainmudah;
+Begin
+end;
+
+Procedure mainsusah;
+Begin
+end;
+
+Begin
+    clrscr;
+    gotoxy(15,2);writeln('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =');
+    gotoxy(15,3);writeln('= = =                       WELCOME TO                          =');
+    gotoxy(15,4);writeln('= =                                                           = =');
+    gotoxy(15,5);writeln('=               TEBANG POHON BERSAMA BADROL & SAM           = = =');
+    gotoxy(15,6);writeln('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =');
+    gotoxy(46,7);writeln('= =');
+    gotoxy(46,8);writeln('= =');
+    gotoxy(35,9) ;writeln('= = = = = = = = = = = = =');
+    gotoxy(35,10);writeln('=      PILIH LEVEL      =');
+    gotoxy(35,11);writeln('=                       =');   
+    gotoxy(35,12);writeln('=    1. MAIN SUSAH      =');    
+    gotoxy(35,13);writeln('=    2. MAIN MUDAH      =');
+    gotoxy(35,14);writeln('= = = = = = = = = = = = =');
+    gotoxy(40,16);write  ('LEVEL ANDA : ');readln(pilihan);
+    
+    if (pilihan=1) then
+        mainmudah;
+        
+    if (pilihan=2) then
+        mainsusah;
+End.
