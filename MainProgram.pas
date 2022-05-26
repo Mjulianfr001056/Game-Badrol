@@ -1,5 +1,8 @@
 Uses crt;
 
+Label
+    Atas;
+
 type
     pohon = array[0..5] of char; //Ini buat bikin pohon supaya tinggi maks nya 6
 
@@ -104,6 +107,7 @@ Procedure mainsusah;
     end;
 
 Begin
+    Atas:
     randomize; // jangan dihapus
 
     clrscr;
@@ -122,11 +126,22 @@ Begin
     gotoxy(35,14);writeln('= = = = = = = = = = = = =');
     gotoxy(40,16);write  ('LEVEL ANDA : '); readln(pilihan);
     
-    if (pilihan=1) then
-        mainmudah;
-        
-    if (pilihan=2) then
-        mainsusah;
+    case pilihan of
+        1:  Begin
+            mainsusah;
+            end;
+        2:  Begin
+            mainmudah;
+            end;
+        3:  Exit;
+    else 
+        begin
+            gotoxy(40,19);writeln('PILIHAN ANDA SALAH');
+            gotoxy(35,20);write('INGIN MENCOBA LAGI? (Y/T) : ');readln(lagi);
+            If (lagi='Y') or (lagi='y') then
+            GoTo Atas;
+        end;
+    end;
 
     //BTW, klo diliat, ini kebalik if-case nya, jadi ntar bikin pull request yang udh
     //diperbaiki yakk, ini buat Sani jugaa. Sama bisa dibuat pilihan apabila pemain salah 
