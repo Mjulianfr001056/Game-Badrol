@@ -56,25 +56,7 @@ procedure tampilPohon();
         a,x,y: integer;
         
     begin
-       kebun[0,0]:= 'O';
-       kebun[0,1]:= 'O';
-       kebun[0,2]:= 'O';
-       kebun[0,3]:= 'O';
-       kebun[0,4]:= 'O';
-       kebun[0,5]:= 'O';
-       kebun[1,0]:= 'O';
-       kebun[1,1]:= 'O';
-       kebun[1,2]:= 'O';
-       kebun[1,3]:= 'O';
-       kebun[1,4]:= 'O';
-       kebun[1,5]:= 'O';
-       kebun[2,0]:= 'O';
-       kebun[2,1]:= 'O';
-       kebun[2,2]:= 'O';
-       kebun[2,3]:= 'O';
-       kebun[2,4]:= 'O';
-       kebun[2,5]:= 'O';
-
+       
        x:=1; y:=1;
        for a:=0 to 5 do
         begin
@@ -84,23 +66,23 @@ procedure tampilPohon();
         end;
         writeln ('Pohon 1');
 
-        x:=5; y:=1;
+        x:=10; y:=1;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[1,a]);
             y:=y+1;
         end;
-        gotoxy(5,5); writeln ('Pohon 2');
+        gotoxy(10,7); writeln ('Pohon 2');
 
-        x:=10; y:= 1;
+        x:=15; y:= 1;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[2,a]);
             y:=y+1;
         end;
-        gotoxy(10,5); writeln ('Pohon 3');
+        gotoxy(15,7); writeln ('Pohon 3');
 
     end;
 
@@ -128,6 +110,7 @@ function cekPohon(p_di_cek : pohon) : boolean;
 Procedure mainmudah;
     Begin
         buatKebun(0);
+        tampilPohon;
     end;
 
 {* Main mudah ini buat main sama CPU yang tebang pohon secara random.
