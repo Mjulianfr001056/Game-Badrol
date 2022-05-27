@@ -57,30 +57,30 @@ procedure tampilPohon();
         
     begin
        
-       x:=1; y:=1;
+       x:=1; y:=6;
        for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,0]);
-            y:=y+1;
+            y:=y-1;
         end;
-        writeln ('Pohon 1');
+        gotoxy(1,7); writeln ('Pohon 1');
 
-        x:=10; y:=1;
+        x:=10; y:=6;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,1]);
-            y:=y+1;
+            y:=y-1;
         end;
         gotoxy(10,7); writeln ('Pohon 2');
 
-        x:=20; y:= 1;
+        x:=20; y:= 6;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,2]);
-            y:=y+1;
+            y:=y-1;
         end;
         gotoxy(20,7); writeln ('Pohon 3');
 
