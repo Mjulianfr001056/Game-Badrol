@@ -56,24 +56,7 @@ procedure tampilPohon();
         a,x,y: integer;
         
     begin
-       kebun[0,0]:= 'O';
-       kebun[0,1]:= 'O';
-       kebun[0,2]:= 'O';
-       kebun[0,3]:= 'O';
-       kebun[0,4]:= 'O';
-       kebun[0,5]:= 'O';
-       kebun[1,0]:= 'O';
-       kebun[1,1]:= 'O';
-       kebun[1,2]:= 'O';
-       kebun[1,3]:= 'O';
-       kebun[1,4]:= 'O';
-       kebun[1,5]:= 'O';
-       kebun[2,0]:= 'O';
-       kebun[2,1]:= 'O';
-       kebun[2,2]:= 'O';
-       kebun[2,3]:= 'O';
-       kebun[2,4]:= 'O';
-       kebun[2,5]:= 'O';
+        clrscr;
 
        x:=1; y:=1;
        for a:=0 to 5 do
@@ -124,10 +107,15 @@ function cekPohon(p_di_cek : pohon) : boolean;
     Ini jatahnya Syifa juga yak.
 *}
 
+function bisaDitebang(p_di_cek : pohon, h : integer) : boolean;
+    begin
+        
+    end;
 
 Procedure mainmudah;
     Begin
         buatKebun(0);
+        tampilPohon;
     end;
 
 {* Main mudah ini buat main sama CPU yang tebang pohon secara random.
@@ -152,6 +140,7 @@ Procedure mainsusah;
     end;
 
 Begin
+
     randomize; // jangan dihapus
 
     clrscr;
