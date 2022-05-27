@@ -15,7 +15,7 @@ procedure buatKebun(idx : integer);
         while h = 0 do h := random(7);
 
         for i := 0 to h do begin
-            kebun[idx] := 'o';
+            kebun[i,idx] := 'o';
         end;
 
         if(idx < 2) then buatKebun(idx + 1);
@@ -61,7 +61,7 @@ procedure tampilPohon();
        for a:=0 to 5 do
         begin
             gotoxy(x,y);
-            writeln (kebun[0,a]);
+            writeln (kebun[a,0]);
             y:=y+1;
         end;
         writeln ('Pohon 1');
@@ -70,16 +70,16 @@ procedure tampilPohon();
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
-            writeln (kebun[1,a]);
+            writeln (kebun[a,1]);
             y:=y+1;
         end;
         gotoxy(10,7); writeln ('Pohon 2');
 
-        x:=15; y:= 1;
+        x:=20; y:= 1;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
-            writeln (kebun[2,a]);
+            writeln (kebun[a,2]);
             y:=y+1;
         end;
         gotoxy(20,7); writeln ('Pohon 3');
