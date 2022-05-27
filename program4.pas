@@ -136,8 +136,10 @@ Label
             
         // CPU
         lagi:
-
-
+        tebangPohon:= random(3);
+        if tebangPohon=0 then
+            goto lagi;
+            
         // cek kondisi bisa ditebang
         bisaDitebang();
         if (bisaDitebang=true) then
