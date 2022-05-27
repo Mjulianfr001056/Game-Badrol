@@ -15,7 +15,7 @@ procedure buatKebun(idx : integer);
         while h = 0 do h := random(7);
 
         for i := 0 to h do begin
-            kebun[i,idx] := 'o';
+            kebun[i,idx] := 'O';
         end;
 
         if(idx < 2) then buatKebun(idx + 1);
@@ -56,33 +56,33 @@ procedure tampilPohon();
         a,x,y: integer;
         
     begin
-       
-       x:=1; y:=6;
+       gotoxy (35,1); writeln ('Kondisi Kebun Saat Ini');
+       x:=35; y:=8;
        for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,0]);
             y:=y-1;
         end;
-        gotoxy(1,7); writeln ('Pohon 1');
+        gotoxy(35,9); writeln ('Pohon 1');
 
-        x:=10; y:=6;
+        x:=45; y:=8;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,1]);
             y:=y-1;
         end;
-        gotoxy(10,7); writeln ('Pohon 2');
+        gotoxy(45,9); writeln ('Pohon 2');
 
-        x:=20; y:= 6;
+        x:=55; y:= 8;
         for a:=0 to 5 do
         begin
             gotoxy(x,y);
             writeln (kebun[a,2]);
             y:=y-1;
         end;
-        gotoxy(20,7); writeln ('Pohon 3');
+        gotoxy(55,9); writeln ('Pohon 3');
 
     end;
 
@@ -96,8 +96,15 @@ procedure tampilPohon();
 *}
 
 function cekPohon(p_di_cek : pohon) : boolean;
+    var
+        a : integer;
     begin
-        //forward;
+        for a:=0 to 5 do
+        begin
+            if p_di_cek[a]=' ' then cekPohon:=true
+            else cekPohon:=false;
+        end;
+
     end;
 
 {* Cek pohon ini cuma ngecek apakah array di p_di_cek ini isinya kosong
