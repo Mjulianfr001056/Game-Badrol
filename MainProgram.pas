@@ -7,7 +7,8 @@ type
     pohon = array[0..5] of char; //Ini buat bikin pohon supaya tinggi maks nya 6
 
 Var
-    pilihan : integer;
+    pilihan: integer;
+    lagi: char;
     kebun : array[0..2] of pohon; //ini buat pohonnya yak
 
 procedure buatKebun(idx : integer);
@@ -31,8 +32,11 @@ procedure buatKebun(idx : integer);
 *}
 
 procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
+    var
+        i,a: integer;
     begin
-        //forward;
+        for i:=a to a-h+1 do
+            pohon_ditebang[i]:=' ';
     end;
 
 {* Prosedur tebangPohon ini ngambil parameter pohon yang ditebang
