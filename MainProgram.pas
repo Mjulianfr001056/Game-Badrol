@@ -33,10 +33,20 @@ procedure buatKebun(idx : integer);
 
 procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
     var
-        i,a: integer;
+        i,j: integer;
     begin
-        for i:=a to a-h+1 do
-            pohon_ditebang[i]:=' ';
+        for i:=5 downto 0 do
+           begin
+            if (pohon_ditebang[i]='O') then
+                begin
+                    begin
+                        for j:=i downto i-h+1 do
+                        pohon_ditebang[i]:=' ';
+                    end;
+                break;
+                end
+            else continue;
+           end;
     end;
 
 {* Prosedur tebangPohon ini ngambil parameter pohon yang ditebang
