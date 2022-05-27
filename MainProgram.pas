@@ -82,7 +82,7 @@ procedure tampilPohon();
             writeln (kebun[2,a]);
             y:=y+1;
         end;
-        gotoxy(15,7); writeln ('Pohon 3');
+        gotoxy(20,7); writeln ('Pohon 3');
 
     end;
 
@@ -109,6 +109,7 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 Procedure mainmudah;
     Begin
+        clrscr;
         buatKebun(0);
         tampilPohon;
     end;
