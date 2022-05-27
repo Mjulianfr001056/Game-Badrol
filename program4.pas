@@ -137,9 +137,9 @@ Label
         // CPU
         lagi:
         tebangPohon:= random(3);
-        if tebangPohon=0 then
+        if (tebangPohon=0) then
             goto lagi;
-            
+
         // cek kondisi bisa ditebang
         bisaDitebang();
         if (bisaDitebang=true) then
@@ -149,7 +149,7 @@ Label
 
         // cek kondisi pohon
         cekPohon();
-        if (cekPohon='Ya') then
+        if (cekPohon=true) then
             write('Anda Kalah, Silakan Anda mencoba lagi');
 
         until (cekPohon=true);
