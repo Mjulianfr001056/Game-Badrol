@@ -104,11 +104,10 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 
 Procedure mainmudah(a, b: integer);
-var
-
 Label
     awal;
     lagi;
+    
     Begin
         clrscr;
         buatKebun(0);
