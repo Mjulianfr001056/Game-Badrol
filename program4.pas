@@ -103,11 +103,14 @@ function cekPohon(p_di_cek : pohon) : boolean;
 *}
 
 
-Procedure mainmudah(a, b: integer);
+Procedure mainmudah;
 Label
     awal;
     lagi;
     
+var 
+    ID_pohon, t_pohon : integer;   
+
     Begin
         clrscr;
         buatKebun(0);
@@ -117,42 +120,46 @@ Label
         awal:
         // input user
         write('Masukkan pohon yang akan Anda tebang = ');
-        readln(a);
+        readln(ID_pohon);
         write('Masukkan jumlah pohon yang Anda tebang = ')
-        readln(b);
+        readln(t_pohon);
 
         // cek kondisi bisa ditebang
-        bisaDitebang(a, b);
+        bisaDitebang(ID_pohon, t_pohon);
         if (bisaDitebang=true) then
-            tebangPohon(a, b);
+            tebangPohon(ID_pohon, t_pohon);
         else 
             goto awal;
 
         // cek kondisi pohon
-        cekPohon();
-        if (cekPohon=true) then
+        cekPohon(0);
+        cekPohon(1);
+        cekPohon(2);
+        if (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true) then
             write('Selamat Anda telah memenangkan game ini');
             
         // CPU
         tampilPohon();
         lagi:
-        tebangPohon:= random(3);
-        if (tebangPohon=0) then
+        tebangPohon(ID_pohon,t_pohon):= random(3);
+        if (t_pohon=0) then
             goto lagi;
 
         // cek kondisi bisa ditebang
-        bisaDitebang();
+        bisaDitebang(ID_pohon, t_pohon);
         if (bisaDitebang=true) then
-            tebangPohon();
+            tebangPohon(ID_pohon, t_pohon);
         else 
             goto lagi;
 
         // cek kondisi pohon
-        cekPohon();
-        if (cekPohon=true) then
+        cekPohon(0);
+        cekPohon(1);
+        cekPohon(2);
+        if (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true) then
             write('Anda Kalah, Silakan Anda mencoba lagi');
 
-        until (cekPohon=true);
+        until (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true);
     end;
 
 {* Main mudah ini buat main sama CPU yang tebang pohon secara random.
