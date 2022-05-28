@@ -111,10 +111,10 @@ Label
     lagi;
     Begin
         clrscr;
-        repeat
-
         buatKebun(0);
-        tampilPohon;
+
+        repeat
+        tampilPohon();
         awal:
         // input user
         write('Masukkan pohon yang akan Anda tebang = ');
@@ -123,9 +123,9 @@ Label
         readln(b);
 
         // cek kondisi bisa ditebang
-        bisaDitebang();
+        bisaDitebang(a, b);
         if (bisaDitebang=true) then
-            tebangPohon();
+            tebangPohon(a, b);
         else 
             goto awal;
 
@@ -135,6 +135,7 @@ Label
             write('Selamat Anda telah memenangkan game ini');
             
         // CPU
+        tampilPohon();
         lagi:
         tebangPohon:= random(3);
         if (tebangPohon=0) then
