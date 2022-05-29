@@ -106,7 +106,8 @@ function cekPohon(p_di_cek : pohon) : boolean;
 Procedure mainmudah;
 Label
     ulang_input_user;
-    lagi;
+    ulang_acak_pohon;
+    ulang_acak_tinggi
     
 var 
     ID_pohon, t_pohon : integer;   
