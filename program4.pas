@@ -105,7 +105,7 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 Procedure mainmudah;
 Label
-    awal;
+    ulang_input_user;
     lagi;
     
 var 
@@ -117,45 +117,45 @@ var
 
         repeat
         tampilPohon();
-        awal:
+        
         // input user
+        ulang_input_user:
         write('Masukkan pohon yang akan Anda tebang = ');
         readln(ID_pohon);
         write('Masukkan jumlah pohon yang Anda tebang = ')
         readln(t_pohon);
 
         // cek kondisi bisa ditebang
-        bisaDitebang(ID_pohon, t_pohon);
-        if (bisaDitebang=true) then
+        if (bisaDitebang(ID_pohon, t_pohon)=true) then
             tebangPohon(ID_pohon, t_pohon);
         else 
-            goto awal;
+            goto ulang_input_user;
 
         // cek kondisi pohon
-        cekPohon(0);
-        cekPohon(1);
-        cekPohon(2);
         if (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true) then
             write('Selamat Anda telah memenangkan game ini');
             
         // CPU
         tampilPohon();
-        lagi:
-        tebangPohon(ID_pohon,t_pohon):= random(3);
-        if (t_pohon=0) then
-            goto lagi;
+
+        ulang_acak_pohon:
+        ID_pohon:= random(3);
+        ulang_acak_tinggi:
+        t_pohon:= random(3);
+
+        if (bisaDitebang(ID_pohon)=false) then
+            goto ulang_acak_pohon;
+        else if (t_pohon=0) and (t_pohon>t_pohon(n-1))then
+            goto ulang_acak_tinggi;
+        
 
         // cek kondisi bisa ditebang
-        bisaDitebang(ID_pohon, t_pohon);
-        if (bisaDitebang=true) then
+        if (bisaDitebang(ID_pohon, t_pohon)=true) then
             tebangPohon(ID_pohon, t_pohon);
         else 
             goto lagi;
 
         // cek kondisi pohon
-        cekPohon(0);
-        cekPohon(1);
-        cekPohon(2);
         if (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true) then
             write('Anda Kalah, Silakan Anda mencoba lagi');
 
