@@ -37,15 +37,15 @@ procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
     begin
         for i:=5 downto 0 do
            begin
-            if (pohon_ditebang[i]='O') then
-                begin
+                if (pohon_ditebang[i]='O') then
                     begin
-                        for j:=i downto i-h+1 do
-                        pohon_ditebang[j]:=' ';
-                    end;
-                break;
-                end
-            else continue;
+                        begin
+                            for j:=i downto i-h+1 do
+                            pohon_ditebang[j]:=' ';
+                        end;
+                    break;
+                    end
+                else continue;
            end;
     end;
 
