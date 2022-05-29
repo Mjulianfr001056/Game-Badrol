@@ -107,7 +107,7 @@ Procedure mainmudah;
 Label
     ulang_input_user;
     ulang_acak_pohon;
-    ulang_acak_tinggi
+    ulang_acak_tinggi;
     
 var 
     ID_pohon, t_pohon : integer;   
@@ -144,18 +144,17 @@ var
         ulang_acak_tinggi:
         t_pohon:= random(3);
 
-        if (bisaDitebang(ID_pohon)=false) then
-            goto ulang_acak_pohon;
-        else if (t_pohon=0) and (t_pohon>t_pohon(n-1))then
+        // cek bisaDitebang
+        if (t_pohon=0) then
             goto ulang_acak_tinggi;
-        
-
-        // cek kondisi bisa ditebang
-        if (bisaDitebang(ID_pohon, t_pohon)=true) then
-            tebangPohon(ID_pohon, t_pohon);
-        else 
-            goto lagi;
-
+        else
+        begin
+            if (bisaDitebang(ID_pohon, t_pohon)=true) then
+                tebangPohon(ID_pohon, t_pohon);
+            else
+                goto ulang_acak_pohon;
+        end;
+            
         // cek kondisi pohon
         if (cekPohon(0)=true) and (cekPohon(1)=true) and (cekPohon(2)=true) then
             write('Anda Kalah, Silakan Anda mencoba lagi');
