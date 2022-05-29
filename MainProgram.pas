@@ -41,7 +41,7 @@ procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
                 begin
                     begin
                         for j:=i downto i-h+1 do
-                        pohon_ditebang[i]:=' ';
+                        pohon_ditebang[j]:=' ';
                     end;
                 break;
                 end
