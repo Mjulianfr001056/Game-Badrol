@@ -1,10 +1,14 @@
 Uses crt;
 
+Label
+    Atas;
+
 type
     pohon = array[0..5] of char; //Ini buat bikin pohon supaya tinggi maks nya 6
 
 Var
-    pilihan : integer;
+    pilihan: integer;
+    lagi: char;
     kebun : array[0..2] of pohon; //ini buat pohonnya yak
 
 procedure buatKebun(idx : integer);
@@ -28,8 +32,16 @@ procedure buatKebun(idx : integer);
 *}
 
 procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
+    var
+        i,j: integer;
     begin
-        //forward;
+      for i:=5 downto 0 do
+      begin
+        if (pohon_ditebang[i]<>'O') then continue
+        for j:=i downto i-h+1 do
+        pohon_ditebang[j]:=' ';
+        break;
+      end;
     end;
 
 {* Prosedur tebangPohon ini ngambil parameter pohon yang ditebang
@@ -145,6 +157,7 @@ Procedure mainsusah;
     end;
 
 Begin
+    Atas:
     randomize; // jangan dihapus
 
     clrscr;
@@ -160,14 +173,26 @@ Begin
     gotoxy(35,11);writeln('=                       =');   
     gotoxy(35,12);writeln('=    1. MAIN SUSAH      =');    
     gotoxy(35,13);writeln('=    2. MAIN MUDAH      =');
-    gotoxy(35,14);writeln('= = = = = = = = = = = = =');
-    gotoxy(40,16);write  ('LEVEL ANDA : '); readln(pilihan);
+    gotoxy(35,14);writeln('=    3. KELUAR          =');
+    gotoxy(35,15);writeln('= = = = = = = = = = = = =');
+    gotoxy(40,17);write  ('LEVEL ANDA : '); readln(pilihan);
     
-    if (pilihan=1) then
-        mainmudah;
-        
-    if (pilihan=2) then
-        mainsusah;
+    case pilihan of
+        1:  Begin
+            mainsusah;
+            end;
+        2:  Begin
+            mainmudah;
+            end;
+        3:  Exit;
+    else 
+        begin
+            gotoxy(40,19);writeln('PILIHAN ANDA SALAH');
+            gotoxy(35,20);write('INGIN MENCOBA LAGI? (Y/T) : ');readln(lagi);
+            If (lagi='Y') or (lagi='y') then
+            GoTo Atas;
+        end;
+    end;
 
     //BTW, klo diliat, ini kebalik if-case nya, jadi ntar bikin pull request yang udh
     //diperbaiki yakk, ini buat Sani jugaa. Sama bisa dibuat pilihan apabila pemain salah 
