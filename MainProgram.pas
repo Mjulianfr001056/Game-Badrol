@@ -35,18 +35,16 @@ procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
     var
         i,j: integer;
     begin
-        for i:=5 downto 0 do
-           begin
-                if (pohon_ditebang[i]='O') then
-                    begin
-                        begin
-                            for j:=i downto i-h+1 do
-                            pohon_ditebang[j]:=' ';
-                        end;
-                    break;
-                    end
-                else continue;
-           end;
+      for i:=5 downto 0 do
+      begin
+        if (pohon_ditebang[i]<>'O') then continue
+        else
+        begin
+          for j:=i downto i-h+1 do
+          pohon_ditebang[j]:=' ';
+          break;
+        end;
+      end;
     end;
 
 {* Prosedur tebangPohon ini ngambil parameter pohon yang ditebang
