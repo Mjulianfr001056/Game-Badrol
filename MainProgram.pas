@@ -99,10 +99,10 @@ function cekPohon(p_di_cek : pohon) : boolean;
     var
         a : integer;
     begin
-        for a:=0 to 5 do
+        for a:=5 downto 0 do
         begin
-            if p_di_cek[a]=' ' then cekPohon:=true
-            else cekPohon:=false;
+            if p_di_cek[a]=' ' then cekPohon():=true
+            else cekPohon():=false;
         end;
 
     end;
