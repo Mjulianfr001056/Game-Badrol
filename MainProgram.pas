@@ -78,25 +78,66 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 
 Procedure mainmudah;
+    Label
+        ulang_input_user;
+        ulang_acak_pohon;
+        ulang_acak_tinggi;
+
+    var 
+        ID_pohon, t_pohon : integer;   
+
     Begin
+        clrscr;
         buatKebun(0);
+
+        repeat
+        tampilPohon();
+        
+        // input user
+        ulang_input_user:
+        write('Masukkan pohon yang akan Anda tebang = ');
+        readln(ID_pohon);
+        
+        write('Masukkan jumlah pohon yang Anda tebang = ')
+        readln(t_pohon);
+
+        // cek kondisi bisa ditebang
+        if (bisaDitebang(ID_pohon, t_pohon)) then
+            tebangPohon(ID_pohon, t_pohon);
+        else 
+            goto ulang_input_user;
+
+        // cek kondisi pohon
+        if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
+            write('Selamat Anda telah memenangkan game ini');
+            exit();
+        end;
+            
+        // CPU
+        tampilPohon();
+
+        ulang_acak_pohon:
+        ID_pohon:= random(3);
+        
+        ulang_acak_tinggi:
+        t_pohon:= random(3);
+
+        // cek bisaDitebang
+        if (t_pohon=0) then
+            goto ulang_acak_tinggi;
+    
+        if (not bisaDitebang(ID_pohon, t_pohon)) then
+            goto ulang_acak_pohon;
+        
+        tebangPohon(ID_pohon, t_pohon);
+       
+            
+        // cek kondisi pohon
+        if (cekPohon(0)) and (cekPohon(1)) and (cekPohon(2)) then 
+            write('Anda Kalah, Silakan Anda mencoba lagi');
+            
+        until (cekPohon(0) and cekPohon(1) and cekPohon(2));
     end;
-
-{* Main mudah ini buat main sama CPU yang tebang pohon secara random.
-    Perlu diperhatikan bahwa sebelum tebang pohon secara random, pastikan
-    pohon yang ditebang itu tidak kosong. Hal ini bisa diperoleh dengan
-    memanggil fungsi cekPohon dengan parameter pohon yang mau di-cek
-
-    Untuk main secara gantian-gantian, bisa dibuat pakai repeat-until 
-    atau while-do, jadi ntar di main mudah bisa bikin perulangannya. 
-    Buat tebang pohon, bisa panggil subprogram dibawah yak. Yang ini 
-    jatahnya Agress yak.
-
-    Tolong bikin subprogram buat tebang pohon yak, parameternya pohon 
-    yang mau ditebang, sma berapa banyak yang mau ditebang. Ini aku mintol
-    ke Sani. 
-
-*}
 
 Procedure mainsusah;
     Begin
