@@ -19,7 +19,7 @@ procedure buatKebun(idx : integer);
         while h = 0 do h := random(7);
 
         for i := 0 to h do begin
-            kebun[idx] := 'o';
+            kebun[i,idx] := 'O';
         end;
 
         if(idx < 2) then buatKebun(idx + 1);
@@ -64,8 +64,41 @@ procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
 
 *}
 procedure tampilPohon();
+    var
+        a,x,y: integer;
+        
     begin
-        //forward;
+       clrscr;
+       gotoxy (35,1); writeln ('Kondisi Kebun Saat Ini');
+       x:=35; y:=8;
+       for a:=0 to 5 do
+        begin
+            gotoxy(x,y);
+            writeln (kebun[a,0]);
+            y:=y-1;
+        end;
+        gotoxy(35,9); writeln ('Pohon 1');
+
+        x:=45; y:=8;
+        for a:=0 to 5 do
+        begin
+            gotoxy(x,y);
+            writeln (kebun[a,1]);
+            y:=y-1;
+        end;
+        gotoxy(45,9); writeln ('Pohon 2');
+
+        x:=55; y:= 8;
+        for a:=0 to 5 do
+        begin
+            gotoxy(x,y);
+            writeln (kebun[a,2]);
+            y:=y-1;
+        end;
+        gotoxy(55,9); writeln ('Pohon 3');
+
+        gotoxy (35,1); writeln;
+
     end;
 
 {* Tampil pohon ini buat nampilkan kondisi pohon semuanya yak, bisa pake
@@ -78,8 +111,16 @@ procedure tampilPohon();
 *}
 
 function cekPohon(p_di_cek : pohon) : boolean;
+    var
+        a : integer;
     begin
-        //forward;
+        for a:=5 downto 0 do
+        begin
+            if p_di_cek[a]='O' then cekPohon():=true
+        end;
+        
+        else cekPohon():=false;
+
     end;
 
 {* Cek pohon ini cuma ngecek apakah array di p_di_cek ini isinya kosong
@@ -101,7 +142,6 @@ Procedure mainmudah;
     Begin
         clrscr;
         buatKebun(0);
-
         repeat
         tampilPohon();
         
