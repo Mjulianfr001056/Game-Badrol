@@ -56,6 +56,7 @@ procedure tampilPohon();
         a,x,y: integer;
         
     begin
+       clrscr;
        gotoxy (35,1); writeln ('Kondisi Kebun Saat Ini');
        x:=35; y:=8;
        for a:=0 to 5 do
@@ -83,6 +84,8 @@ procedure tampilPohon();
             y:=y-1;
         end;
         gotoxy(55,9); writeln ('Pohon 3');
+
+        gotoxy (35,1); writeln;
 
     end;
 
@@ -116,9 +119,8 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 Procedure mainmudah;
     Begin
-        clrscr;
         buatKebun(0);
-        tampilPohon;
+        
     end;
 
 {* Main mudah ini buat main sama CPU yang tebang pohon secara random.
