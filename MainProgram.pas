@@ -104,7 +104,7 @@ function cekPohon(p_di_cek : pohon) : boolean;
     begin
         for a:=5 downto 0 do
         begin
-            if p_di_cek[a]=' ' then cekPohon():=true
+            if p_di_cek[a]='O' then cekPohon():=true
         end;
         
         else cekPohon():=false;
