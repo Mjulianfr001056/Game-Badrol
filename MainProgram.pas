@@ -1,10 +1,14 @@
 Uses crt;
 
+Label
+    Atas;
+
 type
     pohon = array[0..5] of char; //Ini buat bikin pohon supaya tinggi maks nya 6
 
 Var
-    pilihan : integer;
+    pilihan: integer;
+    lagi: char;
     kebun : array[0..2] of pohon; //ini buat pohonnya yak
 
 procedure buatKebun(idx : integer);
@@ -28,8 +32,16 @@ procedure buatKebun(idx : integer);
 *}
 
 procedure tebangPohon(var pohon_ditebang : pohon; h : integer);
+    var
+        i,j: integer;
     begin
-        //forward;
+      for i:=5 downto 0 do
+      begin
+        if (pohon_ditebang[i]<>'O') then continue
+        for j:=i downto i-h+1 do
+        pohon_ditebang[j]:=' ';
+        break;
+      end;
     end;
 
 {* Prosedur tebangPohon ini ngambil parameter pohon yang ditebang
@@ -119,26 +131,65 @@ function cekPohon(p_di_cek : pohon) : boolean;
 
 
 Procedure mainmudah;
+    Label
+        ulang_input_user;
+        ulang_acak_pohon;
+        ulang_acak_tinggi;
+
+    var 
+        ID_pohon, t_pohon : integer;   
+
     Begin
+        clrscr;
         buatKebun(0);
+        repeat
+        tampilPohon();
         
+        // input user
+        ulang_input_user:
+        write('Masukkan pohon yang akan Anda tebang = ');
+        readln(ID_pohon);
+        
+        write('Masukkan jumlah pohon yang Anda tebang = ')
+        readln(t_pohon);
+
+        // cek kondisi bisa ditebang
+        if (bisaDitebang(ID_pohon, t_pohon)) then
+            tebangPohon(ID_pohon, t_pohon);
+        else 
+            goto ulang_input_user;
+
+        // cek kondisi pohon
+        if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
+            write('Selamat Anda telah memenangkan game ini');
+            exit();
+        end;
+            
+        // CPU
+        tampilPohon();
+
+        ulang_acak_pohon:
+        ID_pohon:= random(3);
+        
+        ulang_acak_tinggi:
+        t_pohon:= random(3);
+
+        // cek bisaDitebang
+        if (t_pohon=0) then
+            goto ulang_acak_tinggi;
+    
+        if (not bisaDitebang(ID_pohon, t_pohon)) then
+            goto ulang_acak_pohon;
+        
+        tebangPohon(ID_pohon, t_pohon);
+       
+            
+        // cek kondisi pohon
+        if (cekPohon(0)) and (cekPohon(1)) and (cekPohon(2)) then 
+            write('Anda Kalah, Silakan Anda mencoba lagi');
+            
+        until (cekPohon(0) and cekPohon(1) and cekPohon(2));
     end;
-
-{* Main mudah ini buat main sama CPU yang tebang pohon secara random.
-    Perlu diperhatikan bahwa sebelum tebang pohon secara random, pastikan
-    pohon yang ditebang itu tidak kosong. Hal ini bisa diperoleh dengan
-    memanggil fungsi cekPohon dengan parameter pohon yang mau di-cek
-
-    Untuk main secara gantian-gantian, bisa dibuat pakai repeat-until 
-    atau while-do, jadi ntar di main mudah bisa bikin perulangannya. 
-    Buat tebang pohon, bisa panggil subprogram dibawah yak. Yang ini 
-    jatahnya Agress yak.
-
-    Tolong bikin subprogram buat tebang pohon yak, parameternya pohon 
-    yang mau ditebang, sma berapa banyak yang mau ditebang. Ini aku mintol
-    ke Sani. 
-
-*}
 
 Procedure mainsusah;
     Begin
@@ -146,6 +197,7 @@ Procedure mainsusah;
     end;
 
 Begin
+    Atas:
     randomize; // jangan dihapus
 
     clrscr;
@@ -161,14 +213,26 @@ Begin
     gotoxy(35,11);writeln('=                       =');   
     gotoxy(35,12);writeln('=    1. MAIN SUSAH      =');    
     gotoxy(35,13);writeln('=    2. MAIN MUDAH      =');
-    gotoxy(35,14);writeln('= = = = = = = = = = = = =');
-    gotoxy(40,16);write  ('LEVEL ANDA : '); readln(pilihan);
+    gotoxy(35,14);writeln('=    3. KELUAR          =');
+    gotoxy(35,15);writeln('= = = = = = = = = = = = =');
+    gotoxy(40,17);write  ('LEVEL ANDA : '); readln(pilihan);
     
-    if (pilihan=1) then
-        mainmudah;
-        
-    if (pilihan=2) then
-        mainsusah;
+    case pilihan of
+        1:  Begin
+            mainsusah;
+            end;
+        2:  Begin
+            mainmudah;
+            end;
+        3:  Exit;
+    else 
+        begin
+            gotoxy(40,19);writeln('PILIHAN ANDA SALAH');
+            gotoxy(35,20);write('INGIN MENCOBA LAGI? (Y/T) : ');readln(lagi);
+            If (lagi='Y') or (lagi='y') then
+            GoTo Atas;
+        end;
+    end;
 
     //BTW, klo diliat, ini kebalik if-case nya, jadi ntar bikin pull request yang udh
     //diperbaiki yakk, ini buat Sani jugaa. Sama bisa dibuat pilihan apabila pemain salah 
