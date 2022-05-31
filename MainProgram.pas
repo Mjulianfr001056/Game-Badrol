@@ -105,8 +105,9 @@ function cekPohon(p_di_cek : pohon) : boolean;
         for a:=5 downto 0 do
         begin
             if p_di_cek[a]=' ' then cekPohon():=true
-            else cekPohon():=false;
         end;
+        
+        else cekPohon():=false;
 
     end;
 
