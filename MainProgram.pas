@@ -268,11 +268,38 @@ Procedure mainsusah;
             writeln('Tekan <Enter>');
             readkey;
         end;   
+        
+    function spareLife(): boolean;
+        var
+            grumpy : array[-1..3] of integer;
+            spare, i : integer;
+        begin
+            grumpy[0] := tinggiPohon[0];
+            grumpy[0] := hotSauceColdSauce[grumpy[0]];
+
+            grumpy[1] := tinggiPohon[1];
+            grumpy[1] := hotSauceColdSauce[grumpy[1]];
+
+            grumpy[2] := tinggiPohon[2];
+            grumpy[2] := hotSauceColdSauce[grumpy[2]];
+
+            spare := grumpy[0];
+
+            for i := 1 to 2 do begin
+                spare := (spare xor grumpy[i]);
+            end;
+
+            if (spare xor 0 = 0) then spareLife := false else spareLife := true;
+        end;
 
     begin
         clrscr;
-        buatkebun(0);
+        
         SamBelajarDulu;
+
+        repeat
+            buatkebun(0);
+        until spareLife();
 
         repeat
             ID_pohon := 0;
@@ -295,6 +322,7 @@ Procedure mainsusah;
                 tampilPohon();
                 goto ulang_input_user;
             end;
+            
             if (bisaDitebang(ID_pohon, t_pohon)) then
                 tebangPohon(ID_pohon, t_pohon)
             else begin
