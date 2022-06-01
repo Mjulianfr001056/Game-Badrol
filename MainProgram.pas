@@ -205,8 +205,148 @@ Procedure mainmudah;
     end;
 
 Procedure mainsusah;
-    Begin
-        //forward;
+    Label
+        ulang_input_user;
+
+    var 
+        ID_pohon, t_pohon : integer;
+        hotSauceColdSauce : array[-1..10] of integer;
+
+    procedure SamBelajarDulu;
+        var
+            mex, cnt : integer;
+        begin
+            mex := 0;
+            for cnt:= 0 to 10 do begin
+                hotSauceColdSauce[cnt] := mex;
+                inc(mex);
+                if ( (mex xor 3) = 0 ) then mex := mex >> 2;
+            end;
+        end;
+
+    procedure SamTebangPohon;
+        var
+            HM01_loc, HM01_t, i : integer;
+            grumpy : array[-1..3] of integer;
+
+        begin
+            grumpy[0] := tinggiPohon[0];
+            grumpy[0] := hotSauceColdSauce[grumpy[0]];
+
+            grumpy[1] := tinggiPohon[1];
+            grumpy[1] := hotSauceColdSauce[grumpy[1]];
+
+            grumpy[2] := tinggiPohon[2];
+            grumpy[2] := hotSauceColdSauce[grumpy[2]];
+
+            HM01_t := grumpy[0];
+
+            for i := 1 to 2 do begin
+                HM01_t := (HM01_t xor grumpy[i]);
+            end;
+            
+            if (HM01_t xor 3 = 0) then dec(HM01_t);
+            
+            for i := 0 to 2 do begin
+                if ( grumpy[i] = HM01_t ) then HM01_loc := i;
+            end; 
+            
+            if ( (HM01_t xor 0 = 0) ) then begin
+                for i := 0 to 2 do begin
+                    if ( tinggiPohon[i] <> 0 ) then begin
+                        HM01_loc := i;
+                        inc(HM01_t);
+                        break;
+                    end;
+                end;
+            end;
+
+            tampilPohon();
+            tebangPohon(HM01_loc, HM01_t);
+
+            writeln('Sam menebang ', HM01_t, ' dari pohon ke-', HM01_loc + 1);
+            writeln('Tekan <Enter>');
+            readkey;
+        end;   
+        
+    function spareLife(): boolean;
+        var
+            grumpy : array[-1..3] of integer;
+            spare, i : integer;
+        begin
+            grumpy[0] := tinggiPohon[0];
+            grumpy[0] := hotSauceColdSauce[grumpy[0]];
+
+            grumpy[1] := tinggiPohon[1];
+            grumpy[1] := hotSauceColdSauce[grumpy[1]];
+
+            grumpy[2] := tinggiPohon[2];
+            grumpy[2] := hotSauceColdSauce[grumpy[2]];
+
+            spare := grumpy[0];
+
+            for i := 1 to 2 do begin
+                spare := (spare xor grumpy[i]);
+            end;
+
+            if (spare xor 0 = 0) then spareLife := false else spareLife := true;
+        end;
+
+    begin
+        clrscr;
+        
+        SamBelajarDulu;
+
+        repeat
+            buatkebun(0);
+        until spareLife();
+
+        repeat
+            ID_pohon := 0;
+
+            tampilPohon();
+            
+            ulang_input_user:
+            
+            write('Masukkan pohon yang akan Anda tebang = ');
+            readln(ID_pohon);
+
+            ID_pohon -= 1;
+            
+            write('Masukkan tinggi pohon yang Anda tebang = ');
+            readln(t_pohon);
+
+            if(not validasiInput(ID_pohon, t_pohon)) then begin
+                write('Nilai yang Anda masukkan salah! Tekan <Enter>');
+                readkey;
+                tampilPohon();
+                goto ulang_input_user;
+            end;
+            
+            if (bisaDitebang(ID_pohon, t_pohon)) then
+                tebangPohon(ID_pohon, t_pohon)
+            else begin
+                write('Tidak dapat menebang pohon! Tekan <Enter>');
+                readkey;
+                tampilPohon();
+                goto ulang_input_user;
+            end;
+
+            writeln('Badrol berhasil menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            writeln('Tekan <Enter>');
+            readkey;
+            
+            if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
+                write('Selamat Anda telah memenangkan game ini');
+                exit();
+            end;
+
+            SamTebangPohon();
+
+            if (cekPohon(0) and cekPohon(1) and cekPohon(2)) then 
+                write('Anda Kalah, Silakan Anda mencoba lagi');
+            
+        until (cekPohon(0) and cekPohon(1) and cekPohon(2));
     end;
 
 Begin
