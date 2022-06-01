@@ -7,18 +7,19 @@ type
     pohon = array[0..5] of char; 
 
 Var
-    pilihan: integer;
+    pilihan, i: integer;
     lagi: char;
     kebun : array[0..2] of pohon;
-    tinggiPohon : array[0..2] of integer;
+    tinggiPohon : array[-1..2] of integer;
 
 procedure buatKebun(idx : integer);
     var
         h, i: integer;
     begin
         h := 0;
-        while h = 0 do h := random(7);
-        
+        while h = 0 do begin
+            h := random(7);
+        end;
         for i := 0 to h do begin
             kebun[i, idx] := 'O';
         end;
@@ -26,7 +27,7 @@ procedure buatKebun(idx : integer);
         for i := h to 5 do begin
             kebun[i, idx] := ' ';
         end;
-        
+
         tinggiPohon[idx] := h;
         if(idx < 2) then buatKebun(idx + 1);
     end;
@@ -45,7 +46,8 @@ procedure tebangPohon(ID_pohon, h : integer);
                 break;
             end;
             
-        tinggiPohon[ID_pohon] := max(tinggiPohon[ID_pohon]-h, tinggiPohon[ID_pohon]); 
+        tinggiPohon[ID_pohon] -= h; 
+
     end;
 
 procedure tampilPohon();
@@ -104,15 +106,26 @@ function cekPohon(ID_pohon : integer) : boolean;
                     result := False;
                 end; 
             end;   
-        cekPohon := result or false;
+        cekPohon := (result or false);
     end;
 
 function bisaDitebang(ID_pohon, h : integer) : boolean;
     begin
-        writeln(tinggiPohon[ID_pohon]);
         if tinggiPohon[ID_pohon] >= h then bisaDitebang := true else bisaDitebang := false;
+        
     end;
 
+function validasiInput(ID_pohon, h : integer) : boolean;
+    var
+        result : boolean;
+    begin
+        result := true;
+        
+        if (ID_pohon < 0) or (ID_pohon > 2) then result := false;
+        if (h <> 1) and (h <> 2) then  result := false;
+
+        validasiInput := false or result;
+    end;
 Procedure mainmudah;
     Label
         ulang_input_user,
@@ -124,8 +137,8 @@ Procedure mainmudah;
 
     begin
         clrscr;
-        buatKebun(0);
-        
+        buatkebun(0);
+
         repeat
             ID_pohon := 0;
 
@@ -140,6 +153,8 @@ Procedure mainmudah;
             
             write('Masukkan tinggi pohon yang Anda tebang = ');
             readln(t_pohon);
+
+            if(not validasiInput(ID_pohon, t_pohon)) then goto ulang_input_user;
 
             if (bisaDitebang(ID_pohon, t_pohon)) then
                 tebangPohon(ID_pohon, t_pohon)
@@ -159,7 +174,7 @@ Procedure mainmudah;
                 exit();
             end;
                 
-            tampilPohon();
+            readkey();
 
             ulang_acak_pohon:
             ID_pohon:= random(3);
@@ -173,9 +188,12 @@ Procedure mainmudah;
             if (not bisaDitebang(ID_pohon, t_pohon)) then
                 goto ulang_acak_pohon;
             
+            tampilPohon();
+            
             tebangPohon(ID_pohon, t_pohon);
+
             writeln('Sam menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
-            readkey();   
+            readkey;
 
             if (cekPohon(0) and cekPohon(1) and cekPohon(2)) then 
                 write('Anda Kalah, Silakan Anda mencoba lagi');
