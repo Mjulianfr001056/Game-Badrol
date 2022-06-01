@@ -7,7 +7,7 @@ type
     pohon = array[0..5] of char; 
 
 Var
-    pilihan, i: integer;
+    pilihan : integer;
     lagi: char;
     kebun : array[0..2] of pohon;
     tinggiPohon : array[-1..2] of integer;
@@ -67,7 +67,7 @@ procedure tampilPohon();
         for a:=0 to 5 do
             begin
                 gotoxy(x,y);
-                writeln (a, ' ', kebun[a,0]);
+                writeln (kebun[a,0]);
                 y:=y-1;
             end;
         gotoxy(35,15); writeln ('Pohon 1');
@@ -120,7 +120,7 @@ function validasiInput(ID_pohon, h : integer) : boolean;
         result : boolean;
     begin
         result := true;
-        
+
         if (ID_pohon < 0) or (ID_pohon > 2) then result := false;
         if (h <> 1) and (h <> 2) then  result := false;
 
@@ -154,27 +154,29 @@ Procedure mainmudah;
             write('Masukkan tinggi pohon yang Anda tebang = ');
             readln(t_pohon);
 
-            if(not validasiInput(ID_pohon, t_pohon)) then goto ulang_input_user;
-
+            if(not validasiInput(ID_pohon, t_pohon)) then begin
+                write('Nilai yang Anda masukkan salah! Tekan <Enter>');
+                readkey;
+                tampilPohon();
+                goto ulang_input_user;
+            end;
             if (bisaDitebang(ID_pohon, t_pohon)) then
                 tebangPohon(ID_pohon, t_pohon)
             else begin
-                writeln('Tidak dapat menebang pohon!');
+                write('Tidak dapat menebang pohon! Tekan <Enter>');
                 readkey;
+                tampilPohon();
                 goto ulang_input_user;
             end;
 
-            writeln('Badrol menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
-            readkey();
-            
-            writeln('Pohon berhasil ditebang');
+            writeln('Badrol berhasil menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            writeln('Tekan <Enter>');
+            readkey;
             
             if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
                 write('Selamat Anda telah memenangkan game ini');
                 exit();
             end;
-                
-            readkey();
 
             ulang_acak_pohon:
             ID_pohon:= random(3);
@@ -193,6 +195,7 @@ Procedure mainmudah;
             tebangPohon(ID_pohon, t_pohon);
 
             writeln('Sam menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            writeln('Tekan <Enter>');
             readkey;
 
             if (cekPohon(0) and cekPohon(1) and cekPohon(2)) then 
@@ -229,19 +232,19 @@ Begin
     
     case pilihan of
         1:  Begin
-            mainsusah;
+                mainsusah;
             end;
         2:  Begin
-            mainmudah;
+                mainmudah;
             end;
         3:  Exit;
-    else 
-        begin
-            gotoxy(40,19);writeln('PILIHAN ANDA SALAH');
-            gotoxy(35,20);write('INGIN MENCOBA LAGI? (Y/T) : ');readln(lagi);
-            If (lagi='Y') or (lagi='y') then
-            GoTo Atas;
-        end;
+        else 
+            begin
+                gotoxy(40,19);writeln('PILIHAN ANDA SALAH');
+                gotoxy(35,20);write('INGIN MENCOBA LAGI? (Y/T) : ');readln(lagi);
+                If (lagi='Y') or (lagi='y') then
+                GoTo Atas;
+            end;
     end;
 
 End.
