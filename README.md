@@ -25,6 +25,7 @@ Saat asyik menebang, terdengar suara motor Tok Dalang dari kejauhan. Mereka tahu
 4. Pemain yang terakhir menebang pohon dinyatakan sebagai pemenang dari game ini.
 
 Contoh:
+
 ![Prantinjau Tidak tersedia](BadrolAssets.jpeg)
 
 ## Penulis Kode Sumber
