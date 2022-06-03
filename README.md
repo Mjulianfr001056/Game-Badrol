@@ -1,8 +1,8 @@
 # Game Badrol & Sam: Mencari Duren di Kebun Tok Dalang :deciduous_tree:
 ## Overview :sun_with_face:
-Game ini adalah game kompetitif dengan menggunakan konsep dari impartial game. Impartial game adalah suatu game yang dimainkan oleh dua orang di mana setiap orang akan bermain secara bergantian dan setiap gerakan yang dilakukan pada suatu giliran tidak dipengaruhi oleh giliran siapa saat itu. 
+Game ini adalah game kompetitif dengan menggunakan konsep dari impartial game. `Impartial game` adalah suatu game yang dimainkan oleh dua orang di mana setiap orang akan bermain secara bergantian dan setiap gerakan yang dilakukan pada suatu giliran tidak dipengaruhi oleh giliran siapa saat itu. 
 
-Klik link ini untuk belajar lebih lanjut mengenai impartial game:
+`Klik link ini untuk belajar lebih lanjut mengenai impartial game`:
 [Impartial game](https://en.wikipedia.org/wiki/Impartial_game)
 
 Dalam game ini akan terdapat dua tingkat kesulitan, yaitu mudah dan susah. Perbedaan dari permainan mudah dan susah terdapat pada bagaimana cara komputer (CPU) dalam memilih pohon yang akan ditebang selanjutnya. Dalam tingkat kesulitan mudan, komputer akan mencoba menebang pohon secara random (acak) sedangkan pada tingkat kesulitan susah, komputer akan menebang pohon se-optimal mungkin. Tingkat kesulitan susah sudah didesain sedemikian rupa agar pemain pasti dapat menang dengan bermain optimal. Coba kalahkah komputernya~
