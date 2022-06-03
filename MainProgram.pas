@@ -57,12 +57,14 @@ procedure tampilPohon();
     begin
         clrscr;
 
+        textColor(yellow);
         gotoxy(15,2);writeln('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =');
         gotoxy(15,3);writeln('= = =                                                           =');
         gotoxy(15,4);writeln('= =                  Kondisi kebun saat ini                   = =');
         gotoxy(15,5);writeln('=                                                           = = =');
         gotoxy(15,6);writeln('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =');
-       
+        
+        textColor(white);
         x:=38; y:=14;
         for a:=0 to 5 do
             begin
@@ -70,8 +72,12 @@ procedure tampilPohon();
                 writeln (kebun[a,0]);
                 y:=y-1;
             end;
-        gotoxy(35,15); writeln ('Pohon 1');
+        gotoxy(35,15); 
+        
+        textColor(yellow);
+        writeln ('Pohon 1');
 
+        textColor(white);
         x:=48; y:=14;
         for a:=0 to 5 do
             begin
@@ -79,8 +85,12 @@ procedure tampilPohon();
                 writeln (kebun[a,1]);
                 y:=y-1;
             end;
-        gotoxy(45,15); writeln ('Pohon 2');
+        gotoxy(45,15); 
+        
+        textColor(yellow);
+        writeln ('Pohon 2');
 
+        textColor(white);
         x:=58; y:= 14;
         for a:=0 to 5 do
             begin
@@ -88,7 +98,10 @@ procedure tampilPohon();
                 writeln (kebun[a,2]);
                 y:=y-1;
             end;
-        gotoxy(55,15); writeln ('Pohon 3');
+        gotoxy(55,15); 
+
+        textColor(yellow);
+        writeln ('Pohon 3');
 
         gotoxy(35,18); writeln;
     end;
@@ -147,15 +160,23 @@ Procedure mainmudah;
             ulang_input_user:
             
             write('Masukkan pohon yang akan Anda tebang = ');
+
+            textcolor(green);
             readln(ID_pohon);
+            textcolor(yellow);
 
             ID_pohon -= 1;
             
             write('Masukkan tinggi pohon yang Anda tebang = ');
+            
+            textcolor(green);
             readln(t_pohon);
+            textcolor(yellow);
 
             if(not validasiInput(ID_pohon, t_pohon)) then begin
+                textColor(red);
                 write('Nilai yang Anda masukkan salah! Tekan <Enter>');
+                textColor(yellow);
                 readkey;
                 tampilPohon();
                 goto ulang_input_user;
@@ -163,17 +184,27 @@ Procedure mainmudah;
             if (bisaDitebang(ID_pohon, t_pohon)) then
                 tebangPohon(ID_pohon, t_pohon)
             else begin
+                textColor(red);
                 write('Tidak dapat menebang pohon! Tekan <Enter>');
+                textColor(yellow);
                 readkey;
                 tampilPohon();
                 goto ulang_input_user;
             end;
 
-            writeln('Badrol berhasil menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            write('Badrol berhasil menebang ');
+            textColor(green);
+            write(t_pohon);
+            textColor(yellow);
+            write(' dari pohon ke-');
+            textColor(green);
+            writeln(ID_pohon + 1);
+            textColor(yellow);
             writeln('Tekan <Enter>');
             readkey;
             
             if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
+                textColor(white);
                 write('Selamat Anda telah memenangkan game ini');
                 exit();
             end;
@@ -194,10 +225,18 @@ Procedure mainmudah;
             
             tebangPohon(ID_pohon, t_pohon);
 
-            writeln('Sam menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            write('Sam menebang ');
+            textColor(green);
+            write(t_pohon);
+            textColor(yellow);
+            write(' dari pohon ke-');
+            textColor(green);
+            writeln(ID_pohon + 1);
+            textColor(yellow);
             writeln('Tekan <Enter>');
             readkey;
 
+            textColor(white);
             if (cekPohon(0) and cekPohon(1) and cekPohon(2)) then 
                 write('Anda Kalah, Silakan Anda mencoba lagi');
             
@@ -264,7 +303,14 @@ Procedure mainsusah;
             tampilPohon();
             tebangPohon(HM01_loc, HM01_t);
 
-            writeln('Sam menebang ', HM01_t, ' dari pohon ke-', HM01_loc + 1);
+            write('Sam menebang ');
+            textColor(green);
+            write(HM01_t);
+            textColor(yellow);
+            write(' dari pohon ke-');
+            textColor(green);
+            writeln(HM01_loc + 1);
+            textColor(yellow);
             writeln('Tekan <Enter>');
             readkey;
         end;   
@@ -309,40 +355,59 @@ Procedure mainsusah;
             ulang_input_user:
             
             write('Masukkan pohon yang akan Anda tebang = ');
+
+            textcolor(green);
             readln(ID_pohon);
+            textcolor(yellow);
 
             ID_pohon -= 1;
             
             write('Masukkan tinggi pohon yang Anda tebang = ');
+            
+            textcolor(green);
             readln(t_pohon);
+            textcolor(yellow);
 
             if(not validasiInput(ID_pohon, t_pohon)) then begin
+                textColor(red);
                 write('Nilai yang Anda masukkan salah! Tekan <Enter>');
+                textColor(yellow);
                 readkey;
                 tampilPohon();
                 goto ulang_input_user;
             end;
-            
+
             if (bisaDitebang(ID_pohon, t_pohon)) then
                 tebangPohon(ID_pohon, t_pohon)
             else begin
+                textColor(red);
                 write('Tidak dapat menebang pohon! Tekan <Enter>');
+                textColor(yellow);
                 readkey;
                 tampilPohon();
                 goto ulang_input_user;
             end;
 
-            writeln('Badrol berhasil menebang ', t_pohon, ' dari pohon ke-', ID_pohon + 1);
+            write('Badrol berhasil menebang ');
+            textColor(green);
+            write(t_pohon);
+            textColor(yellow);
+            write(' dari pohon ke-');
+            textColor(green);
+            writeln(ID_pohon + 1);
+            textColor(yellow);
             writeln('Tekan <Enter>');
             readkey;
             
             if (cekPohon(0) and cekPohon(1) and cekPohon(2))then begin
+                textColor(white);
                 write('Selamat Anda telah memenangkan game ini');
                 exit();
             end;
 
             SamTebangPohon();
 
+            textColor(white);
             if (cekPohon(0) and cekPohon(1) and cekPohon(2)) then 
                 write('Anda Kalah, Silakan Anda mencoba lagi');
             
@@ -354,6 +419,7 @@ Begin
     randomize;
 
     clrscr;
+    textcolor(yellow);
     gotoxy(15,2);writeln('= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =');
     gotoxy(15,3);writeln('= = =                       WELCOME TO                          =');
     gotoxy(15,4);writeln('= =                                                           = =');
@@ -368,8 +434,12 @@ Begin
     gotoxy(35,13);writeln('=    2. MAIN MUDAH      =');
     gotoxy(35,14);writeln('=    3. KELUAR          =');
     gotoxy(35,15);writeln('= = = = = = = = = = = = =');
-    gotoxy(40,17);write  ('LEVEL ANDA : '); readln(pilihan);
+    gotoxy(40,17);write  ('LEVEL ANDA : '); 
     
+    textColor(green);
+    readln(pilihan);
+    
+    textColor(white);
     case pilihan of
         1:  Begin
                 mainsusah;
