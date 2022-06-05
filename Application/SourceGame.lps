@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="SourceGame.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="3"/>
+        <UsageCount Value="20"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unitgame.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitGame"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="298"/>
+        <CursorPos X="59" Y="305"/>
+        <FoldState Value=" T3kN0G0111]3G"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="unitwin.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form2"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UnitWin"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5"/>
+        <CursorPos X="45" Y="13"/>
+        <UsageCount Value="20"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="22">
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="60" Column="3" TopLine="37"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="62" Column="3" TopLine="38"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="68" Column="3" TopLine="47"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="96" Column="28" TopLine="71"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="206" Column="37" TopLine="187"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="196" Column="49" TopLine="184"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="141" Column="22" TopLine="174"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="197" Column="17" TopLine="185"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="187" Column="59" TopLine="160"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="190" Column="22" TopLine="144"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="229" Column="9" TopLine="206"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="223" Column="18" TopLine="211"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="8" Column="85"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="225" Column="22" TopLine="211"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="227" Column="21" TopLine="213"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="58" Column="10" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="79" Column="17" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="78" Column="7" TopLine="69"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="352" Column="28" TopLine="333"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="297" Column="26" TopLine="279"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="237" Column="3" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="264" Column="36" TopLine="237"/>
+      </Position>
+      <Position>
+        <Filename Value="unitgame.pas"/>
+        <Caret Line="280" Column="29" TopLine="297"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

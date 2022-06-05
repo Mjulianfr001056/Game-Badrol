@@ -1,0 +1,265 @@
+object Form1: TForm1
+  Left = 427
+  Height = 588
+  Top = 178
+  Width = 896
+  Caption = 'Game Badrol & Sam: Mencari Duren di Kebun Tok Dalang'
+  ClientHeight = 588
+  ClientWidth = 896
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '2.2.0.4'
+  object Stack1_1: TShape
+    Left = 168
+    Height = 33
+    Top = 280
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack1_2: TShape
+    Left = 168
+    Height = 33
+    Top = 240
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack1_3: TShape
+    Left = 168
+    Height = 33
+    Top = 200
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack1_4: TShape
+    Left = 168
+    Height = 33
+    Top = 160
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack1_5: TShape
+    Left = 168
+    Height = 33
+    Top = 120
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack1_6: TShape
+    Left = 168
+    Height = 33
+    Top = 80
+    Width = 32
+    Brush.Color = clYellow
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_1: TShape
+    Left = 424
+    Height = 33
+    Top = 280
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_2: TShape
+    Left = 424
+    Height = 33
+    Top = 240
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_3: TShape
+    Left = 424
+    Height = 33
+    Top = 200
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_4: TShape
+    Left = 424
+    Height = 33
+    Top = 160
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_5: TShape
+    Left = 424
+    Height = 33
+    Top = 120
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack2_6: TShape
+    Left = 424
+    Height = 33
+    Top = 80
+    Width = 32
+    Brush.Color = clLime
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_1: TShape
+    Left = 680
+    Height = 33
+    Top = 280
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_2: TShape
+    Left = 680
+    Height = 33
+    Top = 240
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_3: TShape
+    Left = 680
+    Height = 33
+    Top = 200
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_4: TShape
+    Left = 680
+    Height = 33
+    Top = 160
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_5: TShape
+    Left = 680
+    Height = 33
+    Top = 120
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object Stack3_6: TShape
+    Left = 680
+    Height = 33
+    Top = 80
+    Width = 32
+    Brush.Color = clFuchsia
+    Shape = stRoundRect
+    Visible = False
+  end
+  object NPohon_1: TLabel
+    Left = 160
+    Height = 20
+    Top = 336
+    Width = 53
+    Caption = 'Pohon 1'
+  end
+  object NPohon_2: TLabel
+    Left = 416
+    Height = 20
+    Top = 336
+    Width = 53
+    Caption = 'Pohon 2'
+  end
+  object NPohon_3: TLabel
+    Left = 672
+    Height = 20
+    Top = 336
+    Width = 53
+    Caption = 'Pohon 3'
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 216
+    Height = 67
+    Top = 424
+    Width = 455
+    AutoFill = True
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 3
+    ClientHeight = 42
+    ClientWidth = 451
+    Columns = 3
+    TabOrder = 0
+    object RDB_1: TRadioButton
+      Left = 6
+      Height = 42
+      Top = 0
+      Width = 147
+      Caption = 'Pohon 1'
+      Checked = True
+      TabOrder = 2
+      TabStop = True
+    end
+    object RDB_2: TRadioButton
+      Left = 153
+      Height = 42
+      Top = 0
+      Width = 147
+      Caption = 'Pohon 2'
+      TabOrder = 0
+    end
+    object RDB_3: TRadioButton
+      Left = 300
+      Height = 42
+      Top = 0
+      Width = 145
+      Caption = 'Pohon 3'
+      TabOrder = 1
+    end
+  end
+  object BTebang1: TButton
+    Left = 272
+    Height = 31
+    Top = 504
+    Width = 94
+    Caption = 'Tebang 1'
+    OnClick = BTebang1Click
+    TabOrder = 1
+  end
+  object BTebang2: TButton
+    Left = 528
+    Height = 31
+    Top = 504
+    Width = 94
+    Caption = 'Tebang 2'
+    OnClick = BTebang2Click
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 312
+    Height = 20
+    Top = 384
+    Width = 268
+    Caption = 'Silakan pilih pohon yang ingin ditebang!'
+  end
+end
